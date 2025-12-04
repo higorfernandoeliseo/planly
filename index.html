@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/line-awseome/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/menu.min.css">
+    <script src="assets/js/dexie.min.js"></script>
+    <title>Planly :: Sua rotina, mais inteligente.</title>
+</head>
+<body>
+    
+     <div class="wrapper">
+        <aside id="sidebar">
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <img width="105px" src="assets/images/logo-planly.webp" alt="Logo da Planly">
+                </div>
+                <ul>
+                    <li class="sidebar-header">
+                        Minhas Listas
+                    </li>
+                </ul>
+                <ul class="sidebar-nav"></ul>
+                <ul>
+                    <li class="sidebar-header">
+                        <button id="btnNewList"> + Nova Lista</button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    
+        <div class="main">
+            <nav class="dashboard-navbar">
+                <button class="toggle-btn" type="button">
+                    <i class="las la-bars"></i>
+                </button>
+                <div class="welcomeMessage"></div>
+            </nav>
+            <main class="content">
+               
+                <div id="defaultDisplay">
+                    <h2 class="subtitle">Bem-vindo ao Tarefas!</h2>
+                    <p>Selecione uma lista ao lado ou crie uma nova para começar.</p>
+                </div>
+
+                <div id="titleList">
+                    <h2 id="List_tname"></h2>
+                    <!-- <h3 class="subtitle">Ordenando por Data de Criação (Decrescente)</h3> -->
+                    <p class="createdDate"></p>
+                    <h3 class="subtitle">ordenada por data de criação (decrescente)</h3>
+                </div>
+                <div id="controls-forms">
+                    <!-- <input type="text" name="search_tasks" id="search_tasks" placeholder="Pesquisar tarefas ..."> -->
+                    <button id="editList">
+                        <i class="las la-pen"></i> <span>Renomear</span>
+                    </button>
+                    <button id="deleteList">
+                        <i class="lar la-trash-alt"></i> <span>Excluir lista</span>
+                    </button>
+                    <button id="newTask">
+                        <i class="las la-plus"></i> <span>Nova Tarefa</span>
+                    </button>
+                </div>
+                <div id="tasks"></div>
+
+            </main>
+        </div>
+        
+        <div id="modalNewTask">
+            <div id="title-header">
+                <h2>Nova Tarefa</h2>
+                <button id="closeModal">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="body-modal">
+               <form id="frmCreateTask">
+                    <div class="form-group">
+                            <input type="text" name="title_task" id="title_task" placeholder="Titulo da Tarefa" class="inputxt">
+                    </div>
+                    <div class="form-group">
+                            <textarea name="description_task" id="description_task" placeholder="Descreva sua tarefa " rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Prioridade:</label>
+                        <select name="priority" id="priority" class="select">
+                            <option value="low">Baixa</option>
+                            <option value="medium">Média</option>
+                            <option value="high">Alta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Periodo de conclusão:</label>
+                        <div class="period">
+                            <input type="date" name="date_period_task" id="date_period_task">
+                            <input type="time" name="time_period_task" id="time_period_task">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="recurring_task_div">
+                            <input type="checkbox" name="recurring_task" id="recurring_task">
+                            <label for="recurring_task">Tarefa recorrente</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="select_box_display">
+                            <label for="type_recurring">Tipo de Recorrencia:</label>
+                            <select name="type_recurring" class="select" id="type_recurring">
+                                <option value="diary">Diaria</option>
+                                <option value="weekly">Semanal</option>
+                                <option value="monthly">Mensal</option>
+                                <option value="annually">Anual</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                            <button id="saveTask">Criar tarefa</button>
+                    </div>
+               </form>
+            </div>
+        </div>
+
+
+
+        <div id="modalEditTask">
+            <div id="title-header">
+                <h2>Editar Tarefa</h2>
+                <button id="closeModalEditTask">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="body-modal">
+               <form id="frmEditTask">
+                    <div class="form-group">
+                            <input type="text" name="title_task_edit" id="title_task_edit" placeholder="Titulo da Tarefa" class="inputxt">
+                    </div>
+                    <div class="form-group">
+                            <textarea name="description_task" id="description_task_edit" placeholder="Descreva sua tarefa " rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <select name="priority_edit" id="priority_edit" class="select">
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Periodo de conclusão:</label>
+                        <div class="period">
+                            <input type="date" name="date_period_task_edit" id="date_period_task_edit">
+                            <input type="time" name="time_period_task_edit" id="time_period_task_edit">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="recurring_task_div">
+                            <input type="checkbox" name="recurring_task_edit" id="recurring_task_edit">
+                            <label for="recurring_task">Tarefa recorrente</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="select_box_display_edit">
+                            <label for="type_recurring">Tipo de Recorrencia:</label>
+                            <select name="type_recurring_edit" class="select" id="type_recurring_edit">
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                            <button id="updateTask">Salvar tarefa</button>
+                    </div>
+               </form>
+            </div>
+        </div>
+
+
+
+        <div id="modalNewList">
+            <div id="title-header">
+                <h2>Criar lista</h2>
+                <button id="closeModalNewList">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="body-modal">
+                <form id="frmCreateList">
+                    <div class="form-group">
+                        <label for="name_list">Nome da lista:</label>
+                        <input type="text" id="name_list" name="name_list" placeholder="Nome da Lista" class="inputxt">
+                    </div>
+                </div>
+                <div class="form-submit">
+                    <button id="createList">Criar Lista</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="modalEditNameList">
+            <div id="title-header">
+                <h2>Editar lista</h2>
+                <button id="closeModalEditNameList">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="body-modal">
+                <form id="frmSaveList">
+                    <div class="form-group">
+                        <label for="name_list_edit">Nome da lista:</label>
+                        <input type="text" id="name_list_edit" name="name_list_edit" placeholder="Nome da Lista" class="inputxt">
+                    </div>
+                </div>
+                <div class="form-submit">
+                    <button id="Save_edit_List">Salvar Lista</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="modalDeleteList">
+            <div id="title-header">
+                <h2>Excluir lista</h2>
+                <button id="closeModalDeleteList">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="body-modal">
+                <p id="message_delete_list">Você tem certeza que deseja apagar a lista </p>
+            </div>
+            <div class="form-submit">
+                <button id="cancel_delete_list">Cancelar</button>
+                <button class="confirm_btn" id="confirm_delete_list">Excluir</button>
+            </div>
+        </div>
+
+
+        <div id="modalDeleteTask">
+            <div id="title-header">
+                <h2>Excluir tarefa</h2>
+                <button id="closeModalDeleteTask">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="body-modal">
+                <p id="message_delete_task">Você tem certeza que deseja apagar essa tarefa </p>
+            </div>
+            <div class="form-submit">
+                <button id="cancel_delete_task">Cancelar</button>
+                <button class="confirm_btn" id="confirm_delete_task">Excluir</button>
+            </div>
+        </div>
+
+        <div id="overlay"></div>
+
+    </div>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
