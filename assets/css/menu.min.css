@@ -1,0 +1,1082 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'inter';
+    src: url('fonts/Inter-Regular.otf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'inter';
+    src: url('fonts/Inter-Bold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'inter';
+    src: url('fonts/Inter-Medium.ttf');
+    font-weight: 300;
+}
+
+body {
+    font-family: 'inter', Arial, Helvetica, sans-serif;
+}
+
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    display: flex;
+}
+
+#sidebar {
+    max-width: 264px;
+    min-width: 264px;
+    background-color: #f8f8f8;
+    box-shadow: inset -3px 0px 5px 0px #ebeaea;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+.sidebar-logo {
+    padding: 1.15rem 1.5rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.dashboard-navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.welcomeMessage {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+span.welcomeMessage {
+    font-size: 26px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+span.daynighticon {
+    margin-right: 5px;
+    font-size: 19px;
+}
+
+
+button#btnNewList {
+    display: flex;
+    width: 100%;
+    font-family: 'inter';
+    padding: 10px 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    background-color: #f8f8f8;
+    border: 2px solid #e7e7e7;
+    font-size: 14px;
+    cursor: pointer;
+    color: #616161;
+    border-radius: 6px;
+    transition: all 0.13s;
+}
+
+button#btnNewList:hover {
+    border-radius: 6px;
+    color: #2c75ff;
+    border-color: #2c75ff;
+}
+
+button#btnNewList i {
+    margin-left: 6px;
+    margin-right: 10px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    margin-right: 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+}
+
+.sidebar-header {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1.5rem 1.5rem .375rem;
+}
+
+li.sidebar-item a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #5c5b5b;
+    position: relative;
+    display: block;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 700;
+} 
+
+li.sidebar-item a.sidebar-link:hover {
+    border-radius: 6px;
+    background-color: #eeeeee;
+}
+
+.active {
+    border-radius: 6px;
+    background-color: #eeeeee;
+}
+
+#sidebar.collapsed {
+    margin-left: -264px;
+}
+
+.content {
+    flex: 1;
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0px 1rem;
+}
+
+h2.subtitle {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+div#listsview {
+    margin-top: 10px;
+}
+
+
+div#defaultDisplay {
+    padding: 20px;
+}
+
+div#defaultDisplay p {
+    margin-top: 7px;
+    color: #616161;
+    font-size: 16px;
+}
+
+div#titleList h2,
+div#defaultDisplay h2 {
+    font-size: 23px;
+}
+
+div#titleList {
+    padding: 20px;
+    display: none;
+}
+
+div#titleList h3.subtitle {
+    font-size: 16px;
+    font-weight: normal;
+    color: #616161;
+    margin-top: 7px;
+}
+
+div#titleList p.createdDate {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #616161;
+    margin-bottom: 15px;
+}
+
+div#tasks {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+div#controls-forms {
+    display: flex;
+    padding: 10px 20px;
+}
+
+div#controls-forms input[type="text"] {
+    padding: 5px;
+}
+
+div#controls-forms button {
+    background-color: transparent;
+}
+
+
+div#controls-forms button#newTask {
+    display: flex;
+    border: none;
+    padding: 10px 5px;
+    border-radius: 6px;
+    font-family: 'inter';
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #2c75ff;
+}
+
+div#controls-forms button#newTask span:hover,
+div#controls-forms button#editList span:hover,
+div#controls-forms button#deleteList span:hover {
+    text-decoration: underline;
+    text-decoration-color: #e7e7e7;
+    text-underline-offset: 5px;
+}
+
+button#editList {
+    display: flex;
+    border: none;
+    padding: 10px 5px;
+    border-radius: 6px;
+    background-color: #fff;
+    font-family: 'inter';
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #616161;
+    margin-right: 10px;
+}
+
+button#editList i {
+    margin-right: 5px;
+}
+
+button#deleteList {
+    display: flex;
+    border: none;
+    padding: 10px 5px;
+    border-radius: 6px;
+    background-color: #fff;
+    font-family: 'inter';
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ed4226;
+    margin-right: 10px;
+}
+
+button#deleteList i {
+   margin-right: 5px; 
+}
+
+button#newTask i {
+    margin-right: 5px;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #f6f6f6;
+    border-bottom: 1px solid #e7e7e7;
+    border-radius: 7px;
+    cursor: pointer;
+    max-width: 837px;
+    transition: all 0.13s;
+    background-color: #fff;
+}
+
+.task:hover {
+    background-color: #f8f8f8;
+}
+
+.task span#nameTask {
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+
+.task div#taskinfo span {
+    margin-right: 8px;
+}
+
+.task div#taskinfo button {
+    border: none;
+    font-size: 17px;
+    margin-right: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #616161;
+}
+
+
+span.listOrigin {
+    color: #616161;
+    font-size: 14px;
+}
+
+span.periodTask {
+    color: #616161;
+    font-size: 14px;
+}
+
+span.late-task {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ed4226;
+    padding-right: 10px;
+}
+
+span.recurringTask {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c75ff;
+}
+
+
+.low {
+    background-color: #d2ead8;
+    padding: 2px 5px;
+    font-size: 13px;
+    border-radius: 5px;
+    color: #273d30;
+    border: 1px solid #b2d1b9;
+}
+
+.medium {
+    background-color: #fef2c8;
+    padding: 2px 5px;
+    font-size: 13px;
+    border-radius: 5px;
+    color: #b45309;
+    border: 1px solid #e5d9ad;
+}
+
+.high {
+    background-color: #fff1f1;
+    padding: 2px 5px;
+    font-size: 13px;
+    border-radius: 5px;
+    color: #d92261;
+    border: 1px solid #e9d4d4;
+}
+
+.marked span#nameTask {
+    text-decoration: line-through !important;
+}
+
+.hide_bar {
+    display: none;
+}
+
+div#overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+/* ESTILIZAÇÃO DO MODAL DE NOVA TAREFA */
+
+div#modalNewTask {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    z-index: 20;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+}
+
+div#modalNewTask div#title-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+div#modalNewTask div#title-header h2 {
+    font-weight: 300;
+    font-size: 19px;
+}
+
+div#modalNewTask div#title-header button {
+    border: none;
+    color: #cecece;
+    font-weight: bold;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+
+div#modalNewTask div#title-header button:hover {
+    color: #000;
+}
+
+div#modalNewTask div.form-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+div#modalNewTask div.form-group div#select_box_display {
+    display: none;
+    flex-direction: column;
+}
+
+div#modalNewTask div.form-group div#select_box_display label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+div#modalNewTask div.form-group label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+div#modalNewTask div.form-group input[type="text"].inputxt {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    font-family: 'inter';
+}
+
+div#modalNewTask div.form-group textarea {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 6px;
+    font-family: 'inter';
+    resize: none;
+}
+
+div#modalNewTask div.form-group select.select {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+div#modalNewTask div.form-group div.period {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+div#modalNewTask div.form-group div.period input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    font-family: 'inter';
+}
+
+
+div#modalNewTask div.form-group input[type="text"].inputxt:focus,
+div#modalNewTask div.form-group div.period input:focus,
+div#modalNewTask div.form-group textarea:focus,
+div#modalNewTask div.form-group select.select:focus {
+    outline: none;
+    border: 1px solid rgba(44, 117, 255, 0.6);
+    border-bottom: 2px solid rgba(44, 117, 255, 0.3);
+    border-radius: 8px;
+}
+
+
+div#modalNewTask  div.recurring_task_div {
+    display: flex;
+    justify-content: left;
+}
+
+div#modalNewTask div.recurring_task_div label {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+div#modalNewTask div.form-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+div#modalNewTask div.form-submit button {
+    font-family: 'inter';
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-weight: bold;
+    color: #5c5b5b;
+}
+
+div#modalNewTask div.form-submit button#saveTask {
+    font-family: 'inter';
+    cursor: pointer;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    font-weight: normal;
+    color: #FFF;
+}
+
+
+/* ESTILIZAÇÃO DO MODAL DE EDITAR TAREFA */
+
+div#modalEditTask {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    z-index: 20;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+}
+
+div#modalEditTask div#title-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+div#modalEditTask div#title-header h2 {
+    font-weight: 300;
+    font-size: 19px;
+}
+
+div#modalEditTask div#title-header button {
+    border: none;
+    color: #cecece;
+    font-weight: bold;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+
+div#modalEditTask div#title-header button:hover {
+    color: #000;
+}
+
+div#modalEditTask div.form-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+div#modalEditTask div.form-group div#select_box_display_edit {
+    display: none;
+    flex-direction: column;
+}
+
+div#modalEditTask div.form-group div#select_box_display_edit label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+div#modalEditTask div.form-group label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+div#modalEditTask div.form-group input[type="text"].inputxt {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    font-family: 'inter';
+}
+
+div#modalEditTask div.form-group textarea {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 6px;
+    font-family: 'inter';
+    resize: none;
+}
+
+div#modalEditTask div.form-group select.select {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+div#modalEditTask div.form-group div.period {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+div#modalEditTask div.form-group div.period input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    font-family: 'inter';
+}
+
+
+div#modalEditTask div.form-group input[type="text"].inputxt:focus,
+div#modalEditTask div.form-group div.period input:focus,
+div#modalEditTask div.form-group textarea:focus,
+div#modalEditTask div.form-group select.select:focus {
+    outline: none;
+    border: 1px solid rgba(44, 117, 255, 0.6);
+    border-bottom: 2px solid rgba(44, 117, 255, 0.3);
+    border-radius: 8px;
+}
+
+
+div#modalEditTask  div.recurring_task_div {
+    display: flex;
+    justify-content: left;
+}
+
+div#modalEditTask div.recurring_task_div label {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+div#modalEditTask div.form-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+div#modalEditTask div.form-submit button {
+    font-family: 'inter';
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-weight: bold;
+    color: #5c5b5b;
+}
+
+div#modalEditTask div.form-submit button#updateTask {
+    font-family: 'inter';
+    cursor: pointer;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    font-weight: normal;
+    color: #FFF;
+}
+
+
+
+/* ESTILIZAÇÃO DO MODAL DE NOVA LISTA */
+
+div#modalNewList {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    z-index: 20;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+}
+
+div#modalNewList div#title-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+div#modalNewList div#title-header h2 {
+    font-weight: 300;
+    font-size: 19px;
+}
+
+div#modalNewList div#title-header button {
+    border: none;
+    color: #cecece;
+    font-weight: bold;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+
+div#modalNewList div#title-header button:hover {
+    color: #000;
+}
+
+div#modalNewList div.form-group,
+div#modalNewList div.form-group div#select_box_display {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+div#modalNewList div.form-group label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+div#modalNewList div.form-group input[type="text"].inputxt {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    font-family: 'inter';
+}
+
+div#modalNewList div.form-group input[type="text"].inputxt:focus {
+    outline: none;
+    border: 1px solid rgba(44, 117, 255, 0.6);
+    border-bottom: 2px solid rgba(44, 117, 255, 0.3);
+    border-radius: 8px;
+}
+
+div#modalNewList div.form-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+div#modalNewList div.form-submit button {
+    font-family: 'inter';
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-weight: bold;
+    color: #5c5b5b;
+}
+
+div#modalNewList div.form-submit button#createList {
+    font-family: 'inter';
+    cursor: pointer;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    font-weight: normal;
+    color: #FFF;
+}
+
+/*modalEditNameList*/
+
+
+/* ESTILIZAÇÃO DO MODAL DE EDITAR LISTA */
+
+div#modalEditNameList {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    z-index: 20;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+}
+
+div#modalEditNameList div#title-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+div#modalEditNameList div#title-header h2 {
+    font-weight: 300;
+    font-size: 19px;
+}
+
+div#modalEditNameList div#title-header button {
+    border: none;
+    color: #cecece;
+    font-weight: bold;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+
+div#modalEditNameList div#title-header button:hover {
+    color: #000;
+}
+
+div#modalEditNameList div.form-group,
+div#modalEditNameList div.form-group div#select_box_display {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+div#modalEditNameList div.form-group label {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+div#modalEditNameList div.form-group input[type="text"].inputxt {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    border-radius: 8px;
+    font-family: 'inter';
+}
+
+div#modalEditNameList div.form-group input[type="text"].inputxt:focus {
+    outline: none;
+    border: 1px solid rgba(44, 117, 255, 0.6);
+    border-bottom: 2px solid rgba(44, 117, 255, 0.3);
+    border-radius: 8px;
+}
+
+div#modalEditNameList div.form-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+div#modalEditNameList div.form-submit button {
+    font-family: 'inter';
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-weight: bold;
+    color: #5c5b5b;
+}
+
+div#modalEditNameList div.form-submit button#Save_edit_List {
+    font-family: 'inter';
+    cursor: pointer;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    font-weight: normal;
+    color: #FFF;
+}
+
+/* ESTILIZAÇÃO DO MODAL DE APAGAR LISTA */
+
+div#modalDeleteList {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    z-index: 20;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+}
+
+div#modalDeleteList div#title-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+div#modalDeleteList div#title-header h2 {
+    font-weight: 300;
+    font-size: 19px;
+}
+
+div#modalDeleteList div#title-header button {
+    border: none;
+    color: #cecece;
+    font-weight: bold;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+
+div#modalDeleteList div#title-header button:hover {
+    color: #000;
+}
+
+div#modalDeleteList div#body-modal p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #616161;
+}
+
+div#modalDeleteList div.form-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+div#modalDeleteList div.form-submit button {
+    font-family: 'inter';
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-weight: bold;
+    color: #5c5b5b;
+    margin-left: 10px;
+}
+
+div#modalDeleteList div.form-submit button.confirm_btn {
+    font-family: 'inter';
+    cursor: pointer;
+    border: 1px solid #ed4226;
+    border-radius: 5px;
+    background-color: #ed4226;
+    font-weight: normal;
+    color: #FFF;
+}
+
+
+
+/* ESTILIZAÇÃO DO MODAL DE APAGAR TAREFA */
+
+div#modalDeleteTask {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    z-index: 20;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+}
+
+div#modalDeleteTask div#title-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+div#modalDeleteTask div#title-header h2 {
+    font-weight: 300;
+    font-size: 19px;
+}
+
+div#modalDeleteTask div#title-header button {
+    border: none;
+    color: #cecece;
+    font-weight: bold;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+
+div#modalDeleteTask div#title-header button:hover {
+    color: #000;
+}
+
+div#modalDeleteTask div#body-modal p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #616161;
+}
+
+div#modalDeleteTask div.form-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+div#modalDeleteTask div.form-submit button {
+    font-family: 'inter';
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-weight: bold;
+    color: #5c5b5b;
+    margin-left: 10px;
+}
+
+div#modalDeleteTask div.form-submit button.confirm_btn {
+    font-family: 'inter';
+    cursor: pointer;
+    border: 1px solid #ed4226;
+    border-radius: 5px;
+    background-color: #ed4226;
+    font-weight: normal;
+    color: #FFF;
+}
+
+@media screen and (max-width: 600px) {
+    div#modalNewTask,
+    div#modalEditTask,
+    div#modalNewList,
+    div#modalEditNameList,
+    div#modalDeleteList,
+    div#modalDeleteTask {
+        width: 350px;
+    }
+
+    
+
+}
